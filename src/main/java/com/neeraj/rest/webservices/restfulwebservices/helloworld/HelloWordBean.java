@@ -1,4 +1,4 @@
-package com.neeraj.rest.webservices.restfulwebservices;
+package com.neeraj.rest.webservices.restfulwebservices.helloworld;
 
 public class HelloWordBean {
 
