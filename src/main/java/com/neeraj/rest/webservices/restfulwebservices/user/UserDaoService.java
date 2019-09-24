@@ -34,8 +34,19 @@ public class UserDaoService {
 
 	public User findOne(int Id) {
 		for (User user : users) {
-			;
 			if (user.getId() == Id) {
+				return user;
+			}
+		}
+		return null;
+	}
+	
+	public User deleteById(int Id) {
+		Iterator<User> iterator = users.iterator();
+		while (iterator.hasNext()) {
+			User user = iterator.next();
+			if (user.getId() == Id) {
+				iterator.remove();
 				return user;
 			}
 		}
