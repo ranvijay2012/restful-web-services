@@ -23,16 +23,16 @@ public class HelloWordController {
 		return "Hello World";
 	}
 
-//	@GetMapping(path = "/hello-world-i18")
-//	public String helloWordI18(@RequestHeader(name = "Accept-Language", required = false) Locale locale) {
-//		return messageSource.getMessage("good.morning.message", null, locale);
-//	}
-	
 	@GetMapping(path = "/hello-world-i18")
-	public String helloWordI18() {
-		return messageSource.getMessage("good.morning.message", null, LocaleContextHolder.getLocale());
-		//return "Good morning";
+	public String helloWordI18(@RequestHeader(name = "Accept-Language", required = false) Locale locale) {
+		return messageSource.getMessage("good.morning.message", null, locale);
 	}
+	
+//	@GetMapping(path = "/hello-world-i18")
+//	public String helloWordI18() {
+//		return messageSource.getMessage("good.morning.message", null, LocaleContextHolder.getLocale());
+//		//return "Good morning";
+//	}
 
 	// using Bean return
 	@GetMapping(path = "/hello-world-bean")

@@ -17,25 +17,25 @@ public class RestfulWebServicesApplication {
 		SpringApplication.run(RestfulWebServicesApplication.class, args);
 	}
 
-	@Bean
-	public LocaleResolver localeResolver() {
-		AcceptHeaderLocaleResolver resolver = new AcceptHeaderLocaleResolver();
-		resolver.setDefaultLocale(Locale.US);
-		return resolver;
-	}
-	
 //	@Bean
 //	public LocaleResolver localeResolver() {
-//		SessionLocaleResolver resolver = new SessionLocaleResolver();
+//		AcceptHeaderLocaleResolver resolver = new AcceptHeaderLocaleResolver();
 //		resolver.setDefaultLocale(Locale.US);
 //		return resolver;
 //	}
+	
+	@Bean
+	public LocaleResolver localeResolver() {
+		SessionLocaleResolver resolver = new SessionLocaleResolver();
+		resolver.setDefaultLocale(Locale.US);
+		return resolver;
+	}
 
-//	@Bean
-//	public ResourceBundleMessageSource bundleMessageSource() {
-//		ResourceBundleMessageSource bundleMessageSource = new ResourceBundleMessageSource();
-//		bundleMessageSource.setBasename("messages");
-//		return bundleMessageSource;
-//	}
+	@Bean
+	public ResourceBundleMessageSource bundleMessageSource() {
+		ResourceBundleMessageSource bundleMessageSource = new ResourceBundleMessageSource();
+		bundleMessageSource.setBasename("messages");
+		return bundleMessageSource;
+	}
 
 }
