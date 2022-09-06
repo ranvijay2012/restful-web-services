@@ -1,4 +1,4 @@
-package com.neeraj.rest.webservices.restfulwebservices;
+package com.neeraj.rest.webservices.restfulwebservices.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

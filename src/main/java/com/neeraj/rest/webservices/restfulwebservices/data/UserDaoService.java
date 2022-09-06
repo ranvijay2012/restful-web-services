@@ -1,13 +1,12 @@
-package com.neeraj.rest.webservices.restfulwebservices.user;
+package com.neeraj.rest.webservices.restfulwebservices.data;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import com.neeraj.rest.webservices.restfulwebservices.dto.User;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Component
 public class UserDaoService {
