@@ -26,38 +26,65 @@ public class AppController {
     @Autowired
     private UserDaoService service;
 
-    // using String return
     @GetMapping(path = "/hello")
     public String helloWord() {
         return "Hello World";
     }
 
-    @GetMapping(path = "/hello-world-i18")
-    public String helloWordI18(@RequestHeader(name = "Accept-Language", required = false) Locale locale) {
+    /**
+     * @param locale
+     * @return
+     */
+    @GetMapping(path = "/hello-i18")
+    public String helloWordI181(@RequestHeader(name = "Accept-Language", required = false) Locale locale) {
         return messageSource.getMessage("good.morning.message", null, locale);
     }
 
+    /**
+     * @return
+     */
     @GetMapping(path = "/hello-world-i18")
     public String helloWordI18() {
         return messageSource.getMessage("good.morning.message", null, LocaleContextHolder.getLocale());
     }
 
-    // using Bean return
+    /**
+     * @return
+     */
     @GetMapping(path = "/hello-world-bean")
     public HelloBean helloWordBean() {
-        return new HelloBean("Hello World");
+        return new HelloBean("Hello World Bean");
     }
 
-    // using Path variable return
+    /**
+     * @param name
+     * @return
+     */
     @GetMapping(path = "/hello-world/path-variable/{name}")
     public HelloBean helloWordPathVariable(@PathVariable String name) {
         return new HelloBean(String.format("Hello World, %s", name));
     }
 
+    /**
+     * @return
+     */
     @GetMapping("/users")
-    public List<User> retriveAllUsers() {
+    public List<User> getAllUsers() {
         return service.findAll();
 
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @GetMapping("/users/{id}")
+    public User retrieveUser(@PathVariable int id) {
+        User user = service.findOne(id);
+        if(user == null) {
+            throw new UserNotFoundException("Id - "+id);
+        }
+        return user;
     }
 
 //	@GetMapping("/users/{id}")
